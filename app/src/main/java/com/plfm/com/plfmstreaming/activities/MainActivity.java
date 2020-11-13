@@ -13,9 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
-
-import com.github.nkzawa.emitter.Emitter;
-import com.github.nkzawa.socketio.client.IO;
+import com.plfm.com.plfmstreaming.activities.SocketSSL;
+import io.socket.emitter.Emitter;
+import io.socket.client.IO;
+import io.socket.client.Socket;
 import com.plfm.com.plfmstreaming.Fragments.AboutFragment;
 import com.plfm.com.plfmstreaming.Fragments.ChatFragment;
 import com.plfm.com.plfmstreaming.Fragments.HomeFragment;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //    private static final String RADIO_URL2 = "http://i.klikhost.net:8810";
 //    private String url_radio = "http://103.28.148.18:8810";
     private Fragment fragment;
-    private com.github.nkzawa.socketio.client.Socket mSocket;
+    private Socket mSocket;
     private MediaPlayer player;
 
     public List<String> getChat() {
@@ -78,9 +79,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         loadFragment(new HomeFragment());
 
         try {
-            mSocket = IO.socket(SOCKET_URL);
-            mSocket.on(getString(R.string.socket_event_chat), onNewMessage);
-            mSocket.connect();
+                        IO.Options options = new IO.Options();
+SocketSSL.set(options);
+Socket mSocket = IO.socket(SOCKET_URL, options);
+mSocket.on(getString(R.string.socket_event_chat), onNewMessage);
+mSocket.connect();
 
         } catch (URISyntaxException e) {
             final String err= e.getMessage();
