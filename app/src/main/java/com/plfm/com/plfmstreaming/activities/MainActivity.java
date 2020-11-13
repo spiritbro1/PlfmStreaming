@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private static final String RADIO_URL = "http://103.28.148.18:8810";
 //    private static final String SOCKET_URL = "http://plfm.usa.cc";
 //    private static final String SOCKET_URL = "http://ec2-3-16-29-123.us-east-2.compute.amazonaws.com:3000";
-    private static final String SOCKET_URL = "http://ec2-3-16-29-123.us-east-2.compute.amazonaws.com:3000";
+//     private static final String SOCKET_URL = "http://ec2-3-16-29-123.us-east-2.compute.amazonaws.com:3000";
+     private static final String SOCKET_URL = "https://nuxtjs-chat-app.herokuapp.com";
+    
 //    private static final String RADIO_URL2 = "http://i.klikhost.net:8810";
 //    private String url_radio = "http://103.28.148.18:8810";
     private Fragment fragment;
