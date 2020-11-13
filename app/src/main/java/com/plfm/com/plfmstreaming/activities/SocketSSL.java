@@ -1,3 +1,4 @@
+package com.plfm.com.plfmstreaming.activities;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
